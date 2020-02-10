@@ -35,12 +35,41 @@ private double percentage;
 private SecureRandom rand = new SecureRandom();
 private Scanner stdin = new Scanner(System.in);
 
-// Assigns num1 and num2 to values and outputs problem to screen
+// Asks for difficulty level and assigns num1 and num2 to values and outputs problem to screen
 private void askQuestion()
 {
-	// Random numbers in the range of 0-9 inclusive
-	num1 = rand.nextInt(10);
-	num2 = rand.nextInt(10);
+	int choice;
+	do
+	{
+		System.out.println("Enter a difficulty level from 1 to 4.");
+		choice = stdin.nextInt();
+		
+		switch(choice)
+		{
+		case 1:
+			// Random numbers in the range of 0-9 inclusive
+			num1 = rand.nextInt(10);
+			num2 = rand.nextInt(10);
+			break;
+		case 2:
+			// Random numbers in the range of 0-99 inclusive
+			num1 = rand.nextInt(100);
+			num2 = rand.nextInt(100);
+			break;
+		case 3:
+			// Random numbers in the range of 0-999 inclusive
+			num1 = rand.nextInt(1000);
+			num2 = rand.nextInt(1000);
+			break;
+		case 4:
+			// Random numbers in the range of 0-9999 inclusive
+			num1 = rand.nextInt(10000);
+			num2 = rand.nextInt(10000);
+			break;
+		default:
+			System.out.println("Please enter a number from 1 to 4.");
+		}
+	} while (choice < 1 || choice > 4);
 	
 	// Calculates answer and stores in instance variable
 	answer = num1 * num2;
