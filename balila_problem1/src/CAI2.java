@@ -68,6 +68,7 @@ public class CAI2
 	private void displayCorrectResponse()
 	{
 		int choice = rand.nextInt(4);
+		System.out.println(choice);
 		switch(choice)
 		{
 		case 0:
@@ -92,6 +93,7 @@ public class CAI2
 	private void displayIncorrectResponse()
 	{
 		int choice = rand.nextInt(4);
+		System.out.println(choice);
 		switch(choice)
 		{
 		case 0:
@@ -128,7 +130,7 @@ public class CAI2
 	// To test CAI1 class
 	public static void main(String[] args)
 	{
-		CAI1 student = new CAI1();
+		CAI2 student = new CAI2();
 		
 		student.quiz();
 	}
