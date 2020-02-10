@@ -81,7 +81,7 @@ public class CAI1
 		System.out.println("No. Please try again.");
 	}
 	
-	// Prints multiplication question to screen and loops until correct resposne given
+	// Prints multiplication question to screen and loops until correct response given
 	public void quiz()
 	{
 		boolean isCorrect;
@@ -92,6 +92,14 @@ public class CAI1
 			readResponse();
 			isCorrect = isAnswerCorrect();
 		} while(isCorrect == false);
+	}
+	
+	// To test CAI1 class
+	public static void main(String[] args)
+	{
+		CAI1 student = new CAI1();
+		
+		student.quiz();
 	}
 }
 
