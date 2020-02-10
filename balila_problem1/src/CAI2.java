@@ -64,14 +64,52 @@ public class CAI2
 		}
 	}
 	
+	// Randomly selects 1 of 4 responses upon receiving a correct answer
 	private void displayCorrectResponse()
 	{
-		System.out.println("Very good!");
+		int choice = rand.nextInt(4);
+		switch(choice)
+		{
+		case 0:
+			System.out.println("Very good!");
+			break;
+		case 1:
+			System.out.println("Excellent!");
+			break;
+		case 2:
+			System.out.println("Nice work!");
+			break;
+		case 3:
+			System.out.println("Keep up the good work!");
+			break;
+		default:
+			// Should not reach default case based on range of choice (0 - 3)
+			break;
+		}
 	}
 	
+	// Randomly selects 1 of 4 responses upon receiving an incorrect answer
 	private void displayIncorrectResponse()
 	{
-		System.out.println("No. Please try again.");
+		int choice = rand.nextInt(4);
+		switch(choice)
+		{
+		case 0:
+			System.out.println("No. Please try again.");
+			break;
+		case 1:
+			System.out.println("Wrong. Try once more.");
+			break;
+		case 2:
+			System.out.println("Don't give up!");
+			break;
+		case 3:
+			System.out.println("No. Keep trying.");
+			break;
+		default:
+			// Should not reach default case based on range of choice (0 - 3)
+			break;
+		}
 	}
 	
 	// Prints multiplication question to screen and loops until correct response given
