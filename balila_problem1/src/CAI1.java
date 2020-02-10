@@ -24,6 +24,7 @@
  * Create main method to test program
  */
 import java.security.SecureRandom;
+import java.util.Scanner;
 
 public class CAI1 
 {
@@ -32,6 +33,7 @@ public class CAI1
 	private int num2;
 	private int answer;
 	private SecureRandom rand = new SecureRandom();
+	private Scanner stdin = new Scanner(System.in);
 	
 	// Assigns num1 and num2 to values and outputs problem to screen
 	private void askQuestion()
@@ -43,7 +45,15 @@ public class CAI1
 		// Calculates answer and stores in instance variable
 		answer = num1 * num2;
 		
+		// Outputs question to screen
 		System.out.println("How much is " + num1 + " times " + num2 + "?");
+	}
+	
+	private int readResponse()
+	{
+		// Reads input from User
+		int response = stdin.nextInt();
+		return response;
 	}
 }
 
