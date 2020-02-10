@@ -50,12 +50,13 @@ public class CAI1
 		System.out.println("How much is " + num1 + " times " + num2 + "?");
 	}
 	
+	// Reads input from User
 	private void readResponse()
 	{
-		// Reads input from User
 		response = stdin.nextInt();
 	}
 	
+	// Checks if User input equals the correct answer
 	private boolean isAnswerCorrect()
 	{
 		if (answer == response)
@@ -78,6 +79,19 @@ public class CAI1
 	private void displayIncorrectResponse()
 	{
 		System.out.println("No. Please try again.");
+	}
+	
+	// Prints multiplication question to screen and loops until correct resposne given
+	public void quiz()
+	{
+		boolean isCorrect;
+		
+		askQuestion();
+		do
+		{
+			readResponse();
+			isCorrect = isAnswerCorrect();
+		} while(isCorrect == false);
 	}
 }
 
