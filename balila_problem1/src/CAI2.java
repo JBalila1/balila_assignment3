@@ -54,12 +54,10 @@ public class CAI2
 	{
 		if (answer == response)
 		{
-			displayCorrectResponse();
 			return true;
 		}
 		else
 		{
-			displayIncorrectResponse();
 			return false;
 		}
 	}
@@ -68,7 +66,6 @@ public class CAI2
 	private void displayCorrectResponse()
 	{
 		int choice = rand.nextInt(4);
-		System.out.println(choice);
 		switch(choice)
 		{
 		case 0:
@@ -93,7 +90,6 @@ public class CAI2
 	private void displayIncorrectResponse()
 	{
 		int choice = rand.nextInt(4);
-		System.out.println(choice);
 		switch(choice)
 		{
 		case 0:
@@ -124,6 +120,14 @@ public class CAI2
 		{
 			readResponse();
 			isCorrect = isAnswerCorrect();
+			if (isCorrect == true)
+			{
+				displayCorrectResponse();
+			}
+			else
+			{
+				displayIncorrectResponse();
+			}
 		} while(isCorrect == false);
 	}
 	

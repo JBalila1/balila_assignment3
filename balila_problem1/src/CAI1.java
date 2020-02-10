@@ -61,12 +61,10 @@ public class CAI1
 	{
 		if (answer == response)
 		{
-			displayCorrectResponse();
 			return true;
 		}
 		else
 		{
-			displayIncorrectResponse();
 			return false;
 		}
 	}
@@ -91,6 +89,14 @@ public class CAI1
 		{
 			readResponse();
 			isCorrect = isAnswerCorrect();
+			if (isCorrect == true)
+			{
+				displayCorrectResponse();
+			}
+			else
+			{
+				displayIncorrectResponse();
+			}
 		} while(isCorrect == false);
 	}
 	
