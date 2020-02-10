@@ -133,25 +133,34 @@ public class CAI3
 	
 	// Prints multiplication question to screen and loops until correct response given
 	public void quiz()
-	{
-		boolean isCorrect;
+	{	
+		char choice;
 		
-		for (int i = 0; i < NUM_QUESTIONS; i++)
+		do
 		{
-			askQuestion();
-			readResponse();
-			if (isAnswerCorrect() == true)
+			// Resets correct responses to 0
+			correct = 0;
+			
+			for (int i = 0; i < NUM_QUESTIONS; i++)
 			{
-				correct++;
-				displayCorrectResponse();
+				askQuestion();
+				readResponse();
+				if (isAnswerCorrect() == true)
+				{
+					correct++;
+					displayCorrectResponse();
+				}
+				else
+				{
+					displayIncorrectResponse();
+				}
 			}
-			else
-			{
-				displayIncorrectResponse();
-			}
-		}
-		
-		displayCompletionMessage();
+			
+			displayCompletionMessage();
+			
+			System.out.println("Would you like to solve another problem? (Y/N)");
+			choice = stdin.next().charAt(0);
+		} while(choice == 'y' || choice == 'Y');
 	}
 	
 	// To test CAI1 class

@@ -82,14 +82,11 @@ public class CAI1
 	// Prints multiplication question to screen and loops until correct response given
 	public void quiz()
 	{
-		boolean isCorrect;
-		
 		askQuestion();
 		do
 		{
 			readResponse();
-			isCorrect = isAnswerCorrect();
-			if (isCorrect == true)
+			if (isAnswerCorrect() == true)
 			{
 				displayCorrectResponse();
 			}
@@ -97,7 +94,7 @@ public class CAI1
 			{
 				displayIncorrectResponse();
 			}
-		} while(isCorrect == false);
+		} while(isAnswerCorrect() == false);
 	}
 	
 	// To test CAI1 class
