@@ -124,4 +124,12 @@ public class CAI2
 			isCorrect = isAnswerCorrect();
 		} while(isCorrect == false);
 	}
+	
+	// To test CAI1 class
+	public static void main(String[] args)
+	{
+		CAI1 student = new CAI1();
+		
+		student.quiz();
+	}
 }
