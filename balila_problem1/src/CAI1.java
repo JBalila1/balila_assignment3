@@ -32,6 +32,7 @@ public class CAI1
 	private int num1;
 	private int num2;
 	private int answer;
+	private int response;
 	private SecureRandom rand = new SecureRandom();
 	private Scanner stdin = new Scanner(System.in);
 	
@@ -49,11 +50,34 @@ public class CAI1
 		System.out.println("How much is " + num1 + " times " + num2 + "?");
 	}
 	
-	private int readResponse()
+	private void readResponse()
 	{
 		// Reads input from User
-		int response = stdin.nextInt();
-		return response;
+		response = stdin.nextInt();
+	}
+	
+	private boolean isAnswerCorrect()
+	{
+		if (answer == response)
+		{
+			displayCorrectResponse();
+			return true;
+		}
+		else
+		{
+			displayIncorrectResponse();
+			return false;
+		}
+	}
+	
+	private void displayCorrectResponse()
+	{
+		System.out.println("Very good!");
+	}
+	
+	private void displayIncorrectResponse()
+	{
+		System.out.println("No. Please try again.");
 	}
 }
 
