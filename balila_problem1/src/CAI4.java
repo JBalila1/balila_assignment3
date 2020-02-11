@@ -213,7 +213,7 @@ public class CAI4
 			
 			displayCompletionMessage();
 			
-			System.out.println("Would you like to solve another problem? (Y/N)");
+			System.out.println("Would you like to solve another set of problems? (Y/N)");
 			choice = stdin.next().charAt(0);
 		} while(choice == 'y' || choice == 'Y');
 	}
