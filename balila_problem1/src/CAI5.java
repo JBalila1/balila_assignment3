@@ -1,5 +1,5 @@
 /*
- * Change CAI3 to allow for different difficulty settings
+ * Change CAI4 to allow for different difficulty settings
  * 
  * -----------------------------------------------------------------------
  * 
@@ -10,12 +10,16 @@
  * readProblemType() asks user to choose type of problem (add., subt., mult., divis.)
  * askQuestion() method prints problem
  * 		Uses rand to generate two numbers
+ * 		Uses chosen problem type to change problem output (add., subt., mult., divis.) 
  * readResponse() method reads answer
  * isAnswerCorrect() method verifies answer
  * 		displayCorrectResponse() method displays "Very good!"
  * 			Randomly select 1 of 4 responses for correct answer
  * 		displayIncorrectResponse() method displays "No. Please try again."
  * 			Randomly select 1 of 4 responses for incorrect answer
+ * displayCompletionMessage() prints out percentage of questions correct
+ * 		If percentage greater than 75%, prints positive message
+ * 		If percentage less than 75%, prints negative message
  * 
  * Create main method to test program
  */
@@ -287,7 +291,7 @@ public class CAI5
 		} while(choice == 'y' || choice == 'Y');
 	}
 	
-	// To test CAI1 class
+	// To test CAI5 class
 	public static void main(String[] args)
 	{
 		CAI5 student = new CAI5();

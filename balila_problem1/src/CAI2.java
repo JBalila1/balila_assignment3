@@ -128,7 +128,7 @@ public class CAI2
 		} while(isAnswerCorrect() == false);
 	}
 	
-	// To test CAI1 class
+	// To test CAI2 class
 	public static void main(String[] args)
 	{
 		CAI2 student = new CAI2();

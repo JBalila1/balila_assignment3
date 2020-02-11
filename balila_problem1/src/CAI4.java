@@ -15,6 +15,9 @@
  * 			Randomly select 1 of 4 responses for correct answer
  * 		displayIncorrectResponse() method displays "No. Please try again."
  * 			Randomly select 1 of 4 responses for incorrect answer
+ * displayCompletionMessage() prints out percentage of questions correct
+ * 		If percentage greater than 75%, prints positive message
+ * 		If percentage less than 75%, prints negative message
  * 
  * Create main method to test program
  */
@@ -191,6 +194,7 @@ public class CAI4
 			// Asks user to choose difficulty setting (1 - 4)
 			readDifficulty();
 			
+			// Asks 10 questions
 			for (int i = 0; i < NUM_QUESTIONS; i++)
 			{
 				generateQuestionArgument();
@@ -214,7 +218,7 @@ public class CAI4
 		} while(choice == 'y' || choice == 'Y');
 	}
 	
-	// To test CAI1 class
+	// To test CAI4 class
 	public static void main(String[] args)
 	{
 		CAI4 student = new CAI4();
