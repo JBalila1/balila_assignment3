@@ -5,6 +5,8 @@
  * 
  * quiz() method contains program logic
  * 
+ * readDifficulty() asks user to choose their difficulty
+ * generateQuestionArgument() uses chosen difficulty to create random number
  * askQuestion() method prints problem
  * 		Uses rand to generate two numbers
  * readResponse() method reads answer
@@ -32,45 +34,61 @@ private int response;
 private int correct;
 private int incorrect;
 private double percentage;
+private int difficulty;
 private SecureRandom rand = new SecureRandom();
 private Scanner stdin = new Scanner(System.in);
 
-// Asks for difficulty level and assigns num1 and num2 to values and outputs problem to screen
-private void askQuestion()
+// Allows user to input a difficulty level (1 - 4)
+private void readDifficulty()
 {
 	int choice;
+	
+	System.out.println("Enter a difficulty level from 1 to 4.");
 	do
 	{
-		System.out.println("Enter a difficulty level from 1 to 4.");
 		choice = stdin.nextInt();
 		
-		switch(choice)
+		if (choice < 1 || choice > 4)
 		{
-		case 1:
-			// Random numbers in the range of 0-9 inclusive
-			num1 = rand.nextInt(10);
-			num2 = rand.nextInt(10);
-			break;
-		case 2:
-			// Random numbers in the range of 0-99 inclusive
-			num1 = rand.nextInt(100);
-			num2 = rand.nextInt(100);
-			break;
-		case 3:
-			// Random numbers in the range of 0-999 inclusive
-			num1 = rand.nextInt(1000);
-			num2 = rand.nextInt(1000);
-			break;
-		case 4:
-			// Random numbers in the range of 0-9999 inclusive
-			num1 = rand.nextInt(10000);
-			num2 = rand.nextInt(10000);
-			break;
-		default:
 			System.out.println("Please enter a number from 1 to 4.");
 		}
 	} while (choice < 1 || choice > 4);
 	
+	difficulty = choice;
+}
+
+// Creates two random numbers based on readDifficulty()
+private void generateQuestionArgument()
+{
+	switch(difficulty)
+	{
+	case 1:
+		// Random numbers in the range of 0-9 inclusive
+		num1 = rand.nextInt(10);
+		num2 = rand.nextInt(10);
+		break;
+	case 2:
+		// Random numbers in the range of 0-99 inclusive
+		num1 = rand.nextInt(100);
+		num2 = rand.nextInt(100);
+		break;
+	case 3:
+		// Random numbers in the range of 0-999 inclusive
+		num1 = rand.nextInt(1000);
+		num2 = rand.nextInt(1000);
+		break;
+	case 4:
+		// Random numbers in the range of 0-9999 inclusive
+		num1 = rand.nextInt(10000);
+		num2 = rand.nextInt(10000);
+		break;
+	default:
+	}
+}
+
+// Assigns answer to product of num1 and num2 and outputs problem to screen
+private void askQuestion()
+{
 	// Calculates answer and stores in instance variable
 	answer = num1 * num2;
 	
@@ -167,13 +185,17 @@ public void quiz()
 	char choice;
 	
 	do
-	{
+	{	
 		// Resets correct/incorrect responses to 0
 		correct = 0;
 		incorrect = 0;
 		
+		// Asks user to choose difficulty setting (1 - 4)
+		readDifficulty();
+		
 		for (int i = 0; i < NUM_QUESTIONS; i++)
 		{
+			generateQuestionArgument();
 			askQuestion();
 			readResponse();
 			if (isAnswerCorrect() == true)
@@ -198,7 +220,7 @@ public void quiz()
 // To test CAI1 class
 public static void main(String[] args)
 {
-	CAI3 student = new CAI3();
+	CAI4 student = new CAI4();
 	
 	student.quiz();
 }
