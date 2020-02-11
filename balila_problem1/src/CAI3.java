@@ -30,7 +30,6 @@ public class CAI3
 	private int answer;
 	private int response;
 	private int correct;
-	private int incorrect;
 	private double percentage;
 	private SecureRandom rand = new SecureRandom();
 	private Scanner stdin = new Scanner(System.in);
@@ -141,7 +140,6 @@ public class CAI3
 		{
 			// Resets correct/incorrect responses to 0
 			correct = 0;
-			incorrect = 0;
 			
 			for (int i = 0; i < NUM_QUESTIONS; i++)
 			{
@@ -154,7 +152,6 @@ public class CAI3
 				}
 				else
 				{
-					incorrect++;
 					displayIncorrectResponse();
 				}
 			}
