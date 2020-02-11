@@ -114,11 +114,34 @@ public class CAI5
 	// Assigns answer to product of num1 and num2 and outputs problem to screen based on problemType
 	private void askQuestion()
 	{
-		// Calculates answer and stores in instance variable
-		answer = num1 * num2;
-		
-		// Outputs question to screen
-		System.out.println("How much is " + num1 + " times " + num2 + "?");
+		// Changes output based on problemType
+		switch(problemType)
+		{
+		// Addition problems
+		case 1:
+			answer = num1 + num2;
+			System.out.println("How much is " + num1 + " plus " + num2 + "?");
+			break;
+		// Multiplication problems
+		case 2:
+			answer = num1 * num2;
+			System.out.println("How much is " + num1 + " times " + num2 + "?");
+			break;
+		// Subtraction problems
+		case 3:
+			answer = num1 - num2;
+			System.out.println("How much is " + num1 + " minus " + num2 + "?");
+			break;
+		// Division problems
+		case 4:
+			answer = num1 / num2;
+			System.out.println("How much is " + num1 + " divided by " + num2 + "?");
+			break;
+		// Mixed problems
+		case 5:
+			break;
+		default:
+		}
 	}
 	
 	// Reads input from User
