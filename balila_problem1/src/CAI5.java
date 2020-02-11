@@ -7,6 +7,7 @@
  * 
  * readDifficulty() asks user to choose their difficulty
  * generateQuestionArgument() uses chosen difficulty to create random number
+ * readProblemType() asks user to choose type of problem (add., subt., mult., divis.)
  * askQuestion() method prints problem
  * 		Uses rand to generate two numbers
  * readResponse() method reads answer
@@ -34,6 +35,7 @@ public class CAI5
 	private int correct;
 	private double percentage;
 	private int difficulty;
+	private int problemType;
 	private SecureRandom rand = new SecureRandom();
 	private Scanner stdin = new Scanner(System.in);
 	
@@ -85,7 +87,31 @@ public class CAI5
 		}
 	}
 	
-	// Assigns answer to product of num1 and num2 and outputs problem to screen
+	private void readProblemType()
+	{
+		int choice;
+		
+		System.out.println("Choose from one of the following problem types:");
+		System.out.println("1 - Addition");
+		System.out.println("2 - Multiplication");
+		System.out.println("3 - Subtraction");
+		System.out.println("4 - Division");
+		System.out.println("5 - Mixed");
+		
+		do
+		{
+			choice = stdin.nextInt();
+			
+			if (choice < 1 || choice > 5)
+			{
+				System.out.println("Please enter a number from 1 to 4.");
+			}
+		} while (choice < 1 || choice > 5);
+		
+		problemType = choice;
+	}
+	
+	// Assigns answer to product of num1 and num2 and outputs problem to screen based on problemType
 	private void askQuestion()
 	{
 		// Calculates answer and stores in instance variable
