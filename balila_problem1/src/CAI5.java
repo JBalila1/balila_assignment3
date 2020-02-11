@@ -87,6 +87,7 @@ public class CAI5
 		}
 	}
 	
+	// Asks user to choose their problem type
 	private void readProblemType()
 	{
 		int choice;
@@ -122,23 +123,42 @@ public class CAI5
 			answer = num1 + num2;
 			System.out.println("How much is " + num1 + " plus " + num2 + "?");
 			break;
+			
 		// Multiplication problems
 		case 2:
 			answer = num1 * num2;
 			System.out.println("How much is " + num1 + " times " + num2 + "?");
 			break;
+			
 		// Subtraction problems
 		case 3:
 			answer = num1 - num2;
 			System.out.println("How much is " + num1 + " minus " + num2 + "?");
 			break;
+			
 		// Division problems
 		case 4:
+			// Prevents division by 0
+			while (num2 == 0)
+			{
+				generateQuestionArgument();
+			}
+			
 			answer = num1 / num2;
-			System.out.println("How much is " + num1 + " divided by " + num2 + "?");
+			System.out.println("How much is " + num1 + " divided by " + num2 + "? (Ignore any remainders)");
 			break;
+			
 		// Mixed problems
 		case 5:
+			// Stores problemType temporarily so it can be overwritten
+			int temp = problemType;
+			
+			// Restricts range to 1 - 4 (excludes 5) for recursive call to askQuestion()
+			problemType = rand.nextInt(4) + 1;
+			askQuestion();
+			
+			// Resets problemType to original value
+			problemType = temp;
 			break;
 		default:
 		}
@@ -240,6 +260,10 @@ public class CAI5
 			// Asks user to choose difficulty setting (1 - 4)
 			readDifficulty();
 			
+			// Asks user to choose problem type (1 - 5)
+			readProblemType();
+			
+			// Asks 10 questions
 			for (int i = 0; i < NUM_QUESTIONS; i++)
 			{
 				generateQuestionArgument();
@@ -266,7 +290,7 @@ public class CAI5
 	// To test CAI1 class
 	public static void main(String[] args)
 	{
-		CAI4 student = new CAI4();
+		CAI5 student = new CAI5();
 		
 		student.quiz();
 	}
