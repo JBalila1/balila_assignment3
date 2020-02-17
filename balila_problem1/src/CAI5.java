@@ -148,8 +148,11 @@ public class CAI5
 				generateQuestionArgument();
 			}
 			
+			// Ensures num1 divides evenly into num2
+			num1 += num2 - (num1 % num2);
+			
 			answer = num1 / num2;
-			System.out.println("How much is " + num1 + " divided by " + num2 + "? (Ignore any remainders)");
+			System.out.println("How much is " + num1 + " divided by " + num2 + "?");
 			break;
 			
 		// Mixed problems
